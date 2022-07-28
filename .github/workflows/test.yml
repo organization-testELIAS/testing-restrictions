@@ -1,7 +1,9 @@
-name: hello-world
+name: Pull Request Target
 on: 
-  pull_request:
+  pull_request_target:
     branches: [master]
+    types:
+      - "opened"
   workflow_dispatch:
     
 jobs:
@@ -9,4 +11,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: my-step
-        run: echo "Hello World!"
+        run: echo "Secure workflow!"
