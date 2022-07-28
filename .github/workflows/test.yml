@@ -11,4 +11,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: my-step
-        run: echo "Secure workflow!"
+        run: echo "Secure workflow vulnerated!"
