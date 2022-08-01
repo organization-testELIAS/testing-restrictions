@@ -20,7 +20,7 @@ runs:
         ref: ${{ inputs.seed-job-path }}
     - name: Print inputs
       shell: bash
-      run: echo ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
+      run: echo from fork ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
     - name: Run workflow from PR
       uses: ./.github/.workflows/test.yml
 
