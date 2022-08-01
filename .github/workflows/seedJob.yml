@@ -2,7 +2,12 @@ name: Seed job with comment
 
 on:
   workflow_dispatch:
-  
+    inputs:
+      runSeedJob:
+        description: 'Write the name of the file that youd like to run.'
+        default: "File"
+        required: true 
+
 permissions: read-all
 
 
