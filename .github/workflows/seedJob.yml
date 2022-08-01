@@ -8,14 +8,17 @@ on:
 
 permissions: read-all
 
+
+
 jobs:
   Seed-job:
     if: github.event.review.state == 'approved' && startsWith(github.event.review.body,'seed')
     runs-on: ubuntu-latest
+    env:
+      WORKFLOW: github.event.review.body
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
-      run: echo ${{ github.event.review.body }}
-    
+      run: echo $WORKFLOW    
