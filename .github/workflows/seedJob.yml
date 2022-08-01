@@ -1,19 +1,17 @@
 name: Seed job with comment
 
 on:
-  pull_request_review:
+  pull_request:
     branches: master
     paths: ["/.github/workflows"]
-    types: [ submitted ]
+    #types: [ submitted ]
 
 
-permissions: read-all
-
-
+#permissions: read-all
 
 jobs:
-  Seed-job:
-    if: github.event.review.state == 'approved' && startsWith(github.event.review.body,'seed')
+  Seed-job-INSECURE:
+    #if: github.event.review.state == 'approved' && startsWith(github.event.review.body,'seed')
     runs-on: ubuntu-latest
     env:
       WORKFLOW: ${{github.event.review.body}}
@@ -22,4 +20,4 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
-      run: echo $WORKFLOW    
+      run: echo $WORKFLOW  - from Fork
