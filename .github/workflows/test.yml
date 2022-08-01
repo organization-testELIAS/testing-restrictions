@@ -1,14 +1,16 @@
-name: Pull Request Target
-on: 
-  pull_request_target:
-    branches: [master]
-    types:
-      - "opened"
-  workflow_dispatch:
-    
+name: Master workflow 
+
+on:
+  pull_request_target
+
+permissions: read-all
+
 jobs:
-  my-job:
-    runs-on: self-hosted
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Secure workflow!"
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    
