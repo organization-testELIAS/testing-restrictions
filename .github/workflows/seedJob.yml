@@ -17,6 +17,8 @@ jobs:
   Seed-job:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
     - name: Echo from Fork
       run: echo from Fork!
     - name: Run seed job workflow
