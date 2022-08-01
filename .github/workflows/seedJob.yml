@@ -24,4 +24,4 @@ jobs:
       with:
         ref: ${{github.event.inputs.sha}}
     - name: Seed Job
-      uses: ./.github/workflows/${{github.event.inputs.jobName}}
+      uses: ./.github/actions/seed-job/${{github.event.inputs.jobName}}
