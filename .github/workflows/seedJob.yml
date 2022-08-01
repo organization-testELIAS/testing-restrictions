@@ -20,7 +20,7 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v2
     - name: Echo from Fork
-      run: echo from Fork!
+      run: echo from Fork 2!
     - name: Run seed job workflow
       uses: ./.github/actions/seed-job
       with:
