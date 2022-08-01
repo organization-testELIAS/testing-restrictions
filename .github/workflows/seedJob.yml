@@ -15,7 +15,7 @@ jobs:
     if: github.event.review.state == 'approved' && startsWith(github.event.review.body,'seed')
     runs-on: ubuntu-latest
     env:
-      WORKFLOW: github.event.review.body
+      WORKFLOW: ${{github.event.review.body}}
     steps:
     - uses: actions/checkout@v2
       with:
