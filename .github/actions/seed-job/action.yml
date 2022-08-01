@@ -22,6 +22,7 @@ runs:
       shell: bash
       run: echo from fork ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
     - name: Run workflow from PR
-      shell: bash
-      run: ${{ inputs.workflow-file-name }}
+      # shell: bash
+      # run: ${{ inputs.workflow-file-name }}
+      uses: ./.github/.workflows/test
 
