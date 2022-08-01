@@ -1,6 +1,8 @@
-name: Seed job
+name: Insecure Seed job
 on:
-  pull_request_target:
+  # pull_request_target:
+  #   branches: [master]
+  push:
     branches: [master]
   workflow_dispatch:
     inputs:
