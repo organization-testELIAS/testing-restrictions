@@ -1,7 +1,7 @@
 name: Secure Workflow
 
 on:
-  pull_request:
+  pull_reques_target:
     branches: master
 
 permissions: read-all
@@ -15,4 +15,4 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Checking downloaded repo
-      run: echo 'Hello from Fork'
+      run: echo 'Hello from Fork - Test [modified] '
