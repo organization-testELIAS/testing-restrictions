@@ -17,5 +17,5 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
-      run: echo ${{ github.event.review.state }}
+      run: echo ${{ github.event.review }}
     
