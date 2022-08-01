@@ -1,8 +1,8 @@
 name: Seed Job from PR
 description: 'Action to run a workflow from the given path'
 inputs:
-  seed-job-path:
-    description: 'GitHub Path'
+  SHA:
+    description: 'GitHub SHA'
     required: true
     default: ''
   workflow-file-name:
@@ -17,10 +17,9 @@ runs:
     - name: Check out the repo
       uses: actions/checkout@v3
       with:
-        ref: ${{ inputs.seed-job-path }}
-    - name: Print inputs
+        ref: ${{ inputs.SHA }}
+    - name: Print inputs and files
       shell: bash
-      run: echo ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
+      run: cd .github && ls -a
     - name: Run workflow from PR
-      uses: ./.github/.workflows/test.yml
-
+      uses: ./.github/workflows/test-action
