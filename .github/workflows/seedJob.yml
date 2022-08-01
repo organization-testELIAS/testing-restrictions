@@ -28,4 +28,4 @@ jobs:
       with:
         ref: ${{github.event.inputs.sha}}
     - name: Vars
-      run: echo ${{github.event.inputs.sha}}
+      run: ls -a
