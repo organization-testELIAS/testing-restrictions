@@ -1,17 +1,17 @@
 name: Seed job with comment
 
 on:
-  pull_request_review:
+  pull_request_review_comment:
     branches: master
     types:
-      - "submitted"
+      - "created"
     
 
 permissions: read-all
 
 jobs:
   Seed-job:
-    #if: ( github.event.review.state == 'approved' && startsWith(github.event.review.comment,'seed') )
+    if: ( githube.event.pull_request.state == 'approved' && startsWith(github.event.comment.body,'seed') )
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
