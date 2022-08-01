@@ -4,7 +4,7 @@ on:
     branches: [master]
   workflow_dispatch:
     inputs:
-      seed-job-path:
+      SHA:
         description: 'GitHub Path'
         required: true
         default: ''
@@ -24,7 +24,7 @@ jobs:
     - name: Run seed job workflow
       uses: ./.github/actions/seed-job
       with:
-        seed-job-path: ${{ github.event.inputs.seed-job-path }}
+        SHA: ${{ github.event.inputs.SHA }}
         workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
       
         

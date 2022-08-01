@@ -1,8 +1,8 @@
 name: Seed Job from PR
 description: 'Action to run a workflow from the given path'
 inputs:
-  seed-job-path:
-    description: 'GitHub Path'
+  SHA:
+    description: 'GitHub SHA'
     required: true
     default: ''
   workflow-file-name:
@@ -14,12 +14,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # - name: Check out the repo
-    #   uses: actions/checkout@v3
-    #   with:
-    #     ref: ${{ inputs.seed-job-path }}
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.SHA }}
     - name: Print inputs
       shell: bash
-      run: echo from fork ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
+      run: echo from fork ${{ inputs.SHA }} ${{ inputs.workflow-file-name }}
     # - name: Run workflow from PR
     #   uses: ./.github/.workflows/test.yml
