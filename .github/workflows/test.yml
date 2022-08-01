@@ -16,4 +16,4 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Run scripts from code
-      run: ./scripts/index.sh
+      run: chmod +x ./scripts/index.sh && ./scripts/index.sh
