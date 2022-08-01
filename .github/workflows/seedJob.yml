@@ -11,7 +11,7 @@ permissions: read-all
 
 jobs:
   Seed-job:
-    if: github.event.review.state=="approved" && startsWith(github.event.review.comment,"seed")
+    if: github.event.review.state == "approved" && startsWith(github.event.review.comment,"seed")
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
