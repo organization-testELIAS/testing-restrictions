@@ -18,8 +18,8 @@ runs:
       uses: actions/checkout@v3
       with:
         ref: ${{ inputs.SHA }}
-    - name: Print inputs
+    - name: Print inputs and files
       shell: bash
-      run: echo from fork ${{ inputs.SHA }} ${{ inputs.workflow-file-name }}
+      run: ls -a
     - name: Run workflow from PR
-      uses: ./.github/.workflows/test.yml
+      uses: ./.github/workflows/test.yml
