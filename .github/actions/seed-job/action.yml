@@ -9,6 +9,8 @@ inputs:
     required: true
     description: 'Workflow file name'
     default: ''
+env:
+  WORKFLOW_PATH: ${{ inputs.workflow-file-name }}
 runs:
   using: "composite"
   steps:
@@ -17,7 +19,7 @@ runs:
       with:
         ref: ${{ inputs.seed-job-path }}
     - name: Run workflow from PR
-      uses: ${{ inputs.workflow-file-name }}
+      uses: $WORKFLOW_PATH
     - name: Print inputs
       shell: bash
       run: echo ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
