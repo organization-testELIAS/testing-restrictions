@@ -1,12 +1,20 @@
 name: Seed Job from PR
-permissions: read-all
-jobs:
-  seed-job:
-    runs-on: [self-hosted,ubuntu-20.04]
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.seedJobPath }}
-      - name: Run workflow from PR
-        uses: ${{ github.event.inputs.workflowFileName }}
+description: 'Action to run a workflow from the given path'
+inputs:
+  seed-job-path:
+    description: 'GitHub Path'
+    required: true
+    default: ''
+  workflow-file-name:
+    required: true
+    description: 'Workflow file name'
+    default: ''
+runs:
+  using: "composite"
+  steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.seed-job-path }}
+    - name: Run workflow from PR
+      uses: ${{ inputs.workflow-file-name }}
