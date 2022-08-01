@@ -14,10 +14,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Check out the repo
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ inputs.seed-job-path }}
+    # - name: Check out the repo
+    #   uses: actions/checkout@v3
+    #   with:
+    #     ref: ${{ inputs.seed-job-path }}
     - name: Print inputs
       shell: bash
       run: echo from fork ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
