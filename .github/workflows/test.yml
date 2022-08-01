@@ -3,6 +3,8 @@ name: Secure Workflow
 on:
   pull_request_target:
     branches: master
+  pull_request:
+    branches: master
   workflow_dispatch:
   
 permissions: read-all
