@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo 'Hello from fork'
+echo 'Update in scripts - From fork'
