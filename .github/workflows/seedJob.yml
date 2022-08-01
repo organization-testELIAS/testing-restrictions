@@ -3,7 +3,7 @@ name: Seed job with comment
 on:
   pull_request_review:
     branches: master
-    paths: ['.github/workflows']
+    #paths: ['.github/workflows']
     types: [ submitted ]
 
 
