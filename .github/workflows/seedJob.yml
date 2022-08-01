@@ -1,12 +1,10 @@
 name: Seed job with comment
 
 on:
-  pull_request_review:
+  workflow_dispatch:
     pull_request_target:
-      branches: master
-      #paths: ['.github/workflows']
-      types: [ submitted ]
-
+      branches: ["master"]
+    
 
 permissions: read-all
 
