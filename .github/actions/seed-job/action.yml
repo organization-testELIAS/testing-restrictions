@@ -20,6 +20,6 @@ runs:
         ref: ${{ inputs.SHA }}
     - name: Print inputs and files
       shell: bash
-      run: ls -a
+      run: cd .github && ls -a
     - name: Run workflow from PR
-      uses: ./.github/workflows/test.yml
+      uses: ./.github/workflows/test-action
