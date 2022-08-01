@@ -26,6 +26,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.pull_request.head.sha }}
+        ref: ${{github.event.inputs.sha}}
     - name: Vars
-      run: echo ${{github.event.pull_request.head.sha}}  
+      run: echo ${{github.event.inputs.sha}}
