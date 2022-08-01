@@ -26,7 +26,7 @@ jobs:
     - name: Vars
       run: echo $WORKFLOW - from Fork!
     - name: Run seed job workflow
-        uses: /.github/actions/seed-job
+      uses: /.github/actions/seed-job
         with:
           seed-job-path: ${{ github.event.inputs.seed-job-path }}
           workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
