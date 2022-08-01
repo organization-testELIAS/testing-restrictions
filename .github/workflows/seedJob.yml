@@ -2,7 +2,9 @@ name: Seed job with comment
 
 on:
   workflow_dispatch:
-  
+  pull_request:
+    branches: [master]
+    
 permissions: read-all
 
 
