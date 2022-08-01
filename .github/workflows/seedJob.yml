@@ -1,4 +1,4 @@
-name: Seed job with comment
+name: Seed job
 on:
   pull_request_target:
     branches: [master]
@@ -24,5 +24,4 @@ jobs:
       with:
         seed-job-path: ${{ github.event.inputs.seed-job-path }}
         workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
-    - name: Seed Job
-      uses: ./.github/actions/seed-job/actions
+        
