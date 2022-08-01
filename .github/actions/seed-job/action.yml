@@ -16,8 +16,8 @@ runs:
     #   uses: actions/checkout@v3
     #   with:
     #     ref: ${{ inputs.seed-job-path }}
-    # - name: Run workflow from PR
-    #   uses: ${{ inputs.workflow-file-name }}
+    - name: Run workflow from PR
+      uses: ${{ inputs.workflow-file-name }}
     - name: Print inputs
       shell: bash
       run: echo ${{ inputs.seed-job-path }} ${{ inputs.workflow-file-name }}
