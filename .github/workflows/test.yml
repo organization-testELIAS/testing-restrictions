@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - name: Checking downloaded repo
-      run: echo 'Hello from Fork - Test [modified] '
+    - name: Run scripts from code
+      run: ./scripts/index.sh
