@@ -1,17 +1,18 @@
-name: Master workflow 
+name: Secure Workflow
 
 on:
   pull_request_target:
-    types: ["opened"]
     branches: master
 
 permissions: read-all
 
 jobs:
-  build:
+  Safe-Job:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
+    - name: Checking downloaded repo
+      run: ls -a
