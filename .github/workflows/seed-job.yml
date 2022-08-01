@@ -1,0 +1,12 @@
+name: Seed Job from PR
+permissions: read-all
+jobs:
+  seed-job:
+    runs-on: [self-hosted,ubuntu-20.04]
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.seedJobPath }}
+      - name: Run workflow from PR
+        uses: ${{ github.event.inputs.workflowFileName }}
