@@ -1,9 +1,7 @@
 name: Secure Workflow
 
 on:
-  # pull_request_target:
-  #   branches: master
-  pull_request:
+  pull_request_target:
     branches: master
   workflow_dispatch:
   
@@ -14,7 +12,8 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - run: echo 'Hello from fork'

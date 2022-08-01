@@ -1,9 +1,10 @@
 name: Secure Workflow
 
 on:
-  pull_request:
+  pull_request_target:
     branches: master
-
+  workflow_dispatch:
+  
 permissions: read-all
 
 jobs:
@@ -11,8 +12,11 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      if: ${{ github.event.pull_request.head.sha }}
+      uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - name: Checking downloaded repo
-      run: echo 'Hello from Fork'
+    - run: echo 'Hello from fork'
+    - name: Run scripts from code
+      run: chmod +x ./scripts/index.sh && ./scripts/index.sh
