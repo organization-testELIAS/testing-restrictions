@@ -3,13 +3,16 @@ name: Seed job with comment
 on:
   workflow_dispatch:
     inputs:
-      runSeedJob:
-        description: 'Write the name of the file that youd like to run.'
-        default: "File"
-        required: true 
+      seed-job-path:
+        description: 'GitHub Path'
+        required: true
+        default: ''
+      workflow-file-name:
+        required: true
+        description: 'Workflow file name (including the yml file type)'
+        default: ''
 
 permissions: read-all
-
 
 jobs:
   Seed-job:
@@ -22,4 +25,9 @@ jobs:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
       run: echo $WORKFLOW - from Fork!
+    - name: Run seed job workflow
+        uses: /.github/actions/seed-job
+        with:
+          seed-job-path: ${{ github.event.inputs.seed-job-path }}
+          workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
       
