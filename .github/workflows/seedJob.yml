@@ -3,10 +3,6 @@ name: Seed job with comment
 on:
   workflow_dispatch:
     inputs:
-      contributorRepo:
-        description: 'Repo from where you are seeding the job'
-        default: "repo"
-        required: true
       sha:
         description: 'Reference of the PR that you are testing'
         required: true
@@ -27,5 +23,5 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{github.event.inputs.sha}}
-    - name: Vars
-      run: ls -a
+    - name: Seed Job
+      uses: ./.github/workflows/${{github.event.inputs.jobName}}
