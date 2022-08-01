@@ -5,6 +5,7 @@ on:
     branches: [master]
   workflow_dispatch:
     inputs:
+      master
       seed-job-path:
         description: 'GitHub Path'
         required: true
@@ -13,6 +14,14 @@ on:
         required: true
         description: 'Workflow file name (including the yml file type)'
         default: ''
+
+      sha:
+        description: 'Reference of the PR that you are testing'
+        required: true
+      jobName:
+        description: 'Name of the job that youll seed'
+        required: true
+        master
 
 permissions: read-all
 
@@ -24,6 +33,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
+       master
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
       run: echo $WORKFLOW - from Fork!
@@ -33,3 +43,7 @@ jobs:
         seed-job-path: ${{ github.event.inputs.seed-job-path }}
         workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
       
+        ref: ${{github.event.inputs.sha}}
+    - name: Seed Job
+      uses: ./.github/actions/seed-job/actions
+       master
