@@ -20,7 +20,7 @@ on:
       jobName:
         description: 'Name of the job that youll seed'
         required: true
-        master
+
 
 permissions: read-all
 
@@ -32,7 +32,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-       master
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
       run: echo $WORKFLOW - from Fork!
@@ -45,4 +44,3 @@ jobs:
         ref: ${{github.event.inputs.sha}}
     - name: Seed Job
       uses: ./.github/actions/seed-job/actions
-       master
