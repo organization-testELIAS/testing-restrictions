@@ -12,10 +12,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # - name: Check out the repo
-    #   uses: actions/checkout@v3
-    #   with:
-    #     ref: ${{ inputs.seed-job-path }}
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.seed-job-path }}
     - name: Run workflow from PR
       uses: ${{ inputs.workflow-file-name }}
     - name: Print inputs
