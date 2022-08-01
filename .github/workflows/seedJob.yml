@@ -11,11 +11,13 @@ permissions: read-all
 
 jobs:
   Seed-job:
-    if: ( githube.event.pull_request.state == 'approved' && startsWith(github.event.comment.body,'seed') )
+    #if: ( github.event.pull_request.state == 'approved' && startsWith(github.event.comment.body,'seed') )
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - name: Checking downloaded repo
-      run: echo ${{ github.event.review.comment }} 
+    - name: Vars
+      run: echo ${{ github.event.pull_request }}
+    - name: Second vars 
+      run: echo ${{ github.event.comment }}
