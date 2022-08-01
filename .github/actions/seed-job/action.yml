@@ -9,8 +9,8 @@ inputs:
     required: true
     description: 'Workflow file name'
     default: ''
-env:
-  WORKFLOW_PATH: ${{ inputs.workflow-file-name }}
+# env:
+#   WORKFLOW_PATH: ${{ inputs.workflow-file-name }}
 runs:
   using: "composite"
   steps:
