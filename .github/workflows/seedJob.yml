@@ -3,10 +3,16 @@ name: Seed job with comment
 on:
   workflow_dispatch:
     inputs:
-      runSeedJob:
-        description: 'Write the name of the file that youd like to run.'
-        default: "File"
-        required: true 
+      contributorRepo:
+        description: 'Repo from where you are seeding the job'
+        default: "repo"
+        required: true
+      sha:
+        description: 'Reference of the PR that you are testing'
+        required: true
+      jobName:
+        description: 'Name of the job that youll seed'
+        required: true
 
 permissions: read-all
 
@@ -22,4 +28,4 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
-      run: echo $WORKFLOW    
+      run: echo ${{github.event.pull_request.head.sha}}  
