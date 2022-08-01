@@ -1,20 +1,21 @@
 name: Seed job with comment
 
 on:
-  pull_request_review_comment:
+  pull_request_review:
     branches: master
+    types: [ submitted ]
+
 
 permissions: read-all
 
 jobs:
   Seed-job:
-    #if: ( github.event.pull_request.state == 'approved' && startsWith(github.event.comment.body,'seed') )
+    if: github.event.review.state == 'approved' #&& startsWith(github.event.review.body,'seed')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Vars
-      run: echo ${{ github.event.pull_request }}
-    - name: Second vars 
-      run: echo ${{ github.event.comment }}
+      run: echo ${{ github.event.review.state }}
+    
