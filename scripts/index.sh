@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo 'Update 2 in scripts - From fork'
+echo 'Update 3 in scripts - From fork'
