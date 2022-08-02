@@ -22,7 +22,7 @@ jobs:
     - name: Echo from Fork
       run: echo from Fork 2!
     - name: Run seed job workflow
-      uses: ./.github/workflows/reusable-seed-job
+      uses: ./.github/workflows/reusable-seed-job.yml
       with:
         SHA: ${{ github.event.inputs.SHA }}
         #workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
