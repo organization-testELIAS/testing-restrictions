@@ -23,7 +23,7 @@ jobs:
     - run: echo ${{ env.FILE_PATH }}
   
   call-reusable-seed-job:
-    uses:  ${{ env.FILE_PATH }}
+    uses:  ${{ env.FILE_PATH }}@master
     with:
       SHA: ${{ github.event.inputs.SHA }}
     # secrets:
