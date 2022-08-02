@@ -6,7 +6,7 @@ on:
       SHA:
         required: true
         type: string
-
+        default: ''
 jobs:
   example_job:
     name: Pass input and secrets to my-action
@@ -14,6 +14,5 @@ jobs:
     steps:
       - uses: ./.github/workflows/test.yml
         with:
-          SHA: ${{ inputs.SHA }}\
-        secrets:
-          SHA: ${{ inputs.SHA}}
+          SHA: ${{ inputs.SHA }}
+        
