@@ -22,6 +22,6 @@ runs:
       shell: bash
       run: cd .github && ls -a
     - name: Run workflow from PR
-      uses: ./.github/workflows/test-action
+      uses: ./.github/workflows/test.yml
       with:
         SHA: ${{ inputs.SHA }}
