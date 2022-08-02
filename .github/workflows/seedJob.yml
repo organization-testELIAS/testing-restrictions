@@ -19,11 +19,11 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
-    - run: echo "FILE_PATH=./.github/workflows/test.yml" >> $GITHUB_ENV
+    - run: echo "FILE_PATH=./.github/workflows/test" >> $GITHUB_ENV
     - run: echo ${{ env.FILE_PATH }}
   
   call-reusable-seed-job:
-    uses:  ${{ env.FILE_PATH }}@master
+    uses:  ${{ env.FILE_PATH }}.yml
     with:
       SHA: ${{ github.event.inputs.SHA }}
     # secrets:
