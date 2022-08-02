@@ -3,6 +3,12 @@ name: Secure Workflow
 on:
   pull_request:
     branches: master
+  workflow_call:
+    inputs:
+      SHA:
+        required: true
+        type: string
+        default: ''
   workflow_dispatch:
 
 permissions: read-all
