@@ -5,13 +5,13 @@ on:
   workflow_dispatch:
     inputs:
       SHA:
-        description: 'GitHub Path'
+        description: 'GitHub SHA'
         required: true
         default: ''
-      workflow-file-name:
-        required: true
-        description: 'Workflow file name (including the yml file type)'
-        default: ''
+      # workflow-file-name:
+      #   required: true
+      #   description: 'Workflow file name (including the yml file type)' 
+      #   default: ''
 permissions: read-all
 jobs:
   Seed-job:
@@ -22,9 +22,9 @@ jobs:
     - name: Echo from Fork
       run: echo from Fork 2!
     - name: Run seed job workflow
-      uses: ./.github/actions/seed-job
+      uses: ./.github/workflows/reusable-seed-job
       with:
         SHA: ${{ github.event.inputs.SHA }}
-        workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
+        #workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
       
         
