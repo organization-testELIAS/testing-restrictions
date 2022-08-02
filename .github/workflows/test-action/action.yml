@@ -4,11 +4,7 @@ on:
   pull_request_target:
     branches: master
   workflow_dispatch:
-  inputs:
-    SHA:
-      description: 'GitHub SHA from seed job'
-      required: false
-      default: ''
+
 permissions: read-all
 
 jobs:
@@ -30,6 +26,6 @@ jobs:
     #     ref: ${{ github.event.pull_request.head.sha }}
     # - name: Checkout from SHA
     #   if: $GITHUB_SHA
-    - run: echo 'Hello from test-action folder'  $GITHUB_SHA ${{ github.event.inputs.SHA }} ${{ github.event.pull_request.head.sha }}
+    - run: echo 'Hello from test-action folder' $GITHUB_SHA ${{ github.event.pull_request.head.sha }}
     - name: Run scripts from code
       run: chmod +x ./scripts/index.sh && ./scripts/index.sh
