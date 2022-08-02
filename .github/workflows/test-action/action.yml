@@ -12,11 +12,17 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
+    - name: Set env SHA
+        run: |
+          if [[ -z ${{ github.event.pull_request.head.sha }} ]]; then
+              echo "SHA=github.event.pull_request.head.sha" >> "$GITHUB_ENV"
+          else
+              echo "SHA=$GITHUB_SHA" >> "$GITHUB_ENV"
+          fi
     - name: Checkout
-      if: ${{ github.event.pull_request.head.sha }}
       uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - run: echo 'Hello from fork'
+    - run: echo 'Hello from fork' env.SHA $SHA ${{ env.SHA }}
     - name: Run scripts from code
       run: chmod +x ./scripts/index.sh && ./scripts/index.sh
