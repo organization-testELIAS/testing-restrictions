@@ -9,7 +9,7 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - run:  chmod +x ~/.github/actions/hello-world-docker-action/entrypoint.sh
+      # - run:  chmod +x ~/.github/actions/hello-world-docker-action/entrypoint.sh
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
