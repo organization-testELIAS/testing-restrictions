@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Echo from Fork
       run: echo from Fork 2!
-    - name: Run seed job workflow
+    call-reusable-seed-job:
       uses: ./.github/workflows/reusable-seed-job.yml
       with:
         SHA: ${{ github.event.inputs.SHA }}
