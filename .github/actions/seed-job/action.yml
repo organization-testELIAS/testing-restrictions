@@ -23,5 +23,5 @@ runs:
       run: cd .github && ls -a
     - name: Run workflow from PR
       uses: ./.github/workflows/test-action
-        with:
-          SHA: ${{ github.event.inputs.SHA }}
+      with:
+        SHA: ${{ github.event.inputs.SHA }}
