@@ -22,7 +22,7 @@ jobs:
     - name: Echo from Fork
       run: echo from Fork 2!
   call-reusable-seed-job:
-    uses: ./.github/workflows/rtest.yml
+    uses: ./.github/workflows/test.yml
     with:
       SHA: ${{ github.event.inputs.SHA }}
     # secrets:
