@@ -9,12 +9,8 @@ on:
         default: ''
     
 jobs:
-  example_job:
-    name: Pass input and secrets to my-action
-    runs-on: ubuntu-latest
-    steps:
-    call-existing-workflow:
-      - uses: ./.github/workflows/test.yml
-        with:
-          SHA: ${{ inputs.SHA }}
+  call-existing-workflow:
+    - uses: ./.github/workflows/test.yml
+      with:
+        SHA: ${{ inputs.SHA }}
         
