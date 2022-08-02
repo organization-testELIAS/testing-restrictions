@@ -10,7 +10,8 @@ on:
     
 jobs:
   call-existing-workflow:
-    - uses: ./.github/workflows/test.yml
-      with:
-        SHA: ${{ inputs.SHA }}
+    uses: ./.github/workflows/test.yml
+    with:
+      SHA: ${{ inputs.SHA }}
+      
         
