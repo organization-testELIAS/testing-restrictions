@@ -16,6 +16,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-    - run: echo 'Hello from fork'
+    - run: echo 'Hello from fork' $GITHUB_SHA
     - name: Run scripts from code
       run: chmod +x ./scripts/index.sh && ./scripts/index.sh
