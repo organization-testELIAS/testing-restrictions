@@ -1,0 +1,28 @@
+name: Secure Workflow
+
+on:
+  pull_request_target:
+    branches: master
+  workflow_call:
+    inputs:
+      SHA:
+        required: true
+        type: string
+        default: ''
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  Safe-Job:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      if: ${{ inputs.SHA}}
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ inputs.SHA }}
+    - run: echo 'Hello from test ///////////////// ' $GITHUB_SHA ${{ inputs.SHA }}
+    - name: Run scripts from NEW FILE
+      run: chmod +x ~/scripts/index.sh && ~/scripts/index.sh

@@ -8,10 +8,6 @@ on:
         description: 'GitHub SHA'
         required: true
         default: ''
-      # workflow-file-name:
-      #   required: true
-      #   description: 'Workflow file name (including the yml file type)' 
-      #   default: ''
 permissions: read-all
 jobs:
   Seed-job:
@@ -23,7 +19,7 @@ jobs:
     - run: echo ${{ env.FILE_NAME }}
   
   call-reusable-seed-job:
-    uses:  ./.github/workflows/${{ env.FILE_NAME }}.yml
+    uses:  ./.github/workflows/seed-job-new-file.yml
     with:
       SHA: ${{ github.event.inputs.SHA }}
     # secrets:
