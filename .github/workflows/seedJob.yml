@@ -1,7 +1,5 @@
 name: Seed Job
 on:
-  pull_request_target:
-    branches: [master]
   workflow_dispatch:
     inputs:
       SHA:
