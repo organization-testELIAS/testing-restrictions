@@ -16,6 +16,12 @@ on:
   #       default: ''
 permissions: read-all
 jobs:
+  run-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Seed Job
+        run: echo 'Running seed job for new/updated workflow...'
+      - run: echo ${{ github.event }}
   call-seed-job:
     if: github.event.review.state == 'approved'
     uses:  ./.github/workflows/seed-job-new-file.yml
