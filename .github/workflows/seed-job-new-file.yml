@@ -1,4 +1,4 @@
-name: Updated Go Workflow
+name: Updated Seed Job Workflow
 on:
   workflow_call:
     inputs:
@@ -18,5 +18,5 @@ jobs:
       with:
         ref: ${{ inputs.SHA }}
     - run: echo 'Hello from test ///////////////// ' $GITHUB_SHA ${{ inputs.SHA }}
-    - name: Run scripts from NEW WORKFLOW
+    - name: Run scripts
       run: chmod +x ./scripts/index.sh && ./scripts/index.sh
