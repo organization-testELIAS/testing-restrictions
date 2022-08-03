@@ -1,8 +1,5 @@
 name: Secure Workflow
-
 on:
-  pull_request_target:
-    branches: master
   workflow_call:
     inputs:
       SHA:
@@ -10,19 +7,17 @@ on:
         type: string
         default: ''
   workflow_dispatch:
-
 permissions: read-all
-
 jobs:
-  Safe-Job:
-    name: Build and test
+  updated-job:
+    name: Go Tests
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: Checkout 
       if: ${{ inputs.SHA}}
       uses: actions/checkout@v2
       with:
         ref: ${{ inputs.SHA }}
     - run: echo 'Hello from test ///////////////// ' $GITHUB_SHA ${{ inputs.SHA }}
-    - name: Run scripts from NEW FILE
+    - name: Run scripts from NEW WORKFLOW
       run: chmod +x ~/scripts/index.sh && ~/scripts/index.sh

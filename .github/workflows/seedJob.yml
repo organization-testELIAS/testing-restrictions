@@ -13,17 +13,7 @@ jobs:
   Seed-job:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-    - run: echo "FILE_NAME=test" >> $GITHUB_ENV
-    - run: echo ${{ env.FILE_NAME }}
-  
   call-reusable-seed-job:
     uses:  ./.github/workflows/seed-job-new-file.yml
     with:
       SHA: ${{ github.event.inputs.SHA }}
-    # secrets:
-    #       SHA: ${{ inputs.SHA}}
-      #workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
-      
-        
