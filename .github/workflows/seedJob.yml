@@ -10,9 +10,6 @@ on:
         default: ''
 permissions: read-all
 jobs:
-  Seed-job:
-    runs-on: ubuntu-latest
-    steps:
   call-reusable-seed-job:
     uses:  ./.github/workflows/seed-job-new-file.yml
     with:

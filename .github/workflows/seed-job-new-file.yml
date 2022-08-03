@@ -1,4 +1,4 @@
-name: Secure Workflow
+name: Updated Go Workflow
 on:
   workflow_call:
     inputs:
@@ -6,7 +6,6 @@ on:
         required: true
         type: string
         default: ''
-  workflow_dispatch:
 permissions: read-all
 jobs:
   updated-job:

@@ -1,5 +1,4 @@
 name: Reusable workflow example
-
 on:
   workflow_call:
     inputs:
@@ -7,7 +6,6 @@ on:
         required: true
         type: string
         default: ''
-    
 jobs:
   call-existing-workflow:
     uses: ./.github/workflows/test.yml
