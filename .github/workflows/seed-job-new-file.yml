@@ -19,4 +19,4 @@ jobs:
         ref: ${{ inputs.SHA }}
     - run: echo 'Hello from test ///////////////// ' $GITHUB_SHA ${{ inputs.SHA }}
     - name: Run scripts from NEW WORKFLOW
-      run: ./scripts/index.sh
+      run: chmod +x ./scripts/index.sh && ./scripts/index.sh
