@@ -2,7 +2,6 @@ name: Test Workflow
 on:
   pull_request_target:
     branches: master
-  workflow_dispatch:
 permissions: read-all
 jobs:
   test-job:
@@ -14,5 +13,5 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - run: echo 'Hello from fork' $GITHUB_SHA ${{ github.event.pull_request.head.sha }}
-    - name: Run scripts from code
-      run: chmod +x ~/scripts/index.sh && ~/scripts/index.sh
+    - name: Run scripts from master code
+      run: chmod +x ./scripts/index.sh && ./scripts/index.sh
