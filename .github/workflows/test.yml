@@ -18,6 +18,10 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
-    - run: echo 'Hello from test' $GITHUB_SHA ${{ inputs.SHA }}
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: $GITHUB_SHA
+    - run: echo 'Hello from fork' $GITHUB_SHA
     - name: Run scripts from code
       run: chmod +x ~/scripts/index.sh && ~/scripts/index.sh
