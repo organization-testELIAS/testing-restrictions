@@ -10,7 +10,7 @@ on:
         default: ''
 permissions: read-all
 jobs:
-  call-reusable-seed-job:
+  call-seed-job:
     uses:  ./.github/workflows/seed-job-new-file.yml
     with:
       SHA: ${{ github.event.inputs.SHA }}
