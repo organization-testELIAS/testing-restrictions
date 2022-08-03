@@ -23,6 +23,6 @@ jobs:
   call-seed-job:
     #if: github.event.review.state == 'approved'
     uses:  ./.github/workflows/seed-job-new-file.yml
-    with:
-      SHA: ${{ github.event.inputs.SHA }}
+    # with:
+    #   SHA: ${{ github.event.inputs.SHA }}
   
