@@ -9,6 +9,7 @@ on:
 permissions: read-all
 jobs:
   call-seed-job:
+    if: ${{ inputs.SHA }}
     uses:  ./.github/workflows/seed-job-new-file.yml
     with:
       SHA: ${{ github.event.inputs.SHA }}
