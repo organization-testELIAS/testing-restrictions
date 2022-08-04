@@ -1,0 +1,20 @@
+name: Testing security
+
+on:
+  pull_request_target:
+    branches: [master]
+
+permissions: read-all
+
+jobs:
+  Safe-Job:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    - name: Checking source
+      run: echo 'Hello from Master'
+    - name: Checking repo
+      run: ls -la
