@@ -15,6 +15,6 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Checking source
-      run: echo 'Hello from Fork 2'
+      run: echo 'Hello from Fork New PR'
     - name: Checking repo
       run: ls -la
