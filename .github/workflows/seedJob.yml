@@ -1,27 +1,30 @@
-name: Seed job with comment
-
+name: Seed job
 on:
+  pull_request_target:
+    branches: [master]
   workflow_dispatch:
     inputs:
-      sha:
-        description: 'Reference of the PR that you are testing'
+      SHA:
+        description: 'GitHub Path'
         required: true
-      jobName:
-        description: 'Name of the job that youll seed'
+        default: ''
+      workflow-file-name:
         required: true
-
+        description: 'Workflow file name (including the yml file type)'
+        default: ''
 permissions: read-all
-
-
-
 jobs:
   Seed-job:
     runs-on: ubuntu-latest
-    env:
-      WORKFLOW: ${{github.event.review.body}}
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    - name: Echo from Fork
+      run: echo from Fork 2!
+    - name: Run seed job workflow
+      uses: ./.github/actions/seed-job
       with:
-        ref: ${{github.event.inputs.sha}}
-    - name: Seed Job
-      uses: ./.github/actions/seed-job/actions
+        SHA: ${{ github.event.inputs.SHA }}
+        workflow-file-name: ${{ github.event.inputs.workflow-file-name }}
+      
+        

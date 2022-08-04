@@ -1,0 +1,25 @@
+name: Seed Job from PR
+description: 'Action to run a workflow from the given path'
+inputs:
+  SHA:
+    description: 'GitHub SHA'
+    required: true
+    default: ''
+  workflow-file-name:
+    required: true
+    description: 'Workflow file name'
+    default: ''
+# env:
+#   WORKFLOW_PATH: ${{ inputs.workflow-file-name }}
+runs:
+  using: "composite"
+  steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.SHA }}
+    - name: Print inputs and files
+      shell: bash
+      run: cd .github && ls -a
+    - name: Run workflow from PR
+      uses: ./.github/workflows/test-action
