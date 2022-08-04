@@ -2,7 +2,7 @@ name: Seed Job
 on:
   pull_request_review:
     types: [submitted]
-#permissions: read-all
+permissions: read-all
 jobs:
   call-seed-job:
     if: github.event.review.state == 'approved' && github.event.review.body == 'Run seed job'
