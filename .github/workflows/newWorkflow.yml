@@ -1,6 +1,6 @@
 name: Test Workflow 
 on:
-  pull_request_target:
+  pull_request:
     branches: master
 permissions: read-all
 jobs:
@@ -13,5 +13,5 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - run: echo 'Hello from fork' $GITHUB_SHA ${{ github.event.pull_request.head.sha }}
-    - name: Run scripts from master code
+    - name: Run scripts from PR code
       run: chmod +x ./scripts/index.sh && ./scripts/index.sh
