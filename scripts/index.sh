@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo 'Hello from fork'
+echo 'Hello everyone from fork - Allow all '
