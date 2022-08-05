@@ -1,0 +1,37 @@
+name: Secure Workflow
+
+on:
+  pull_request_target:
+    branches: master
+  workflow_call:
+    inputs:
+      SHA:
+        description: 'GitHub SHA'
+        required: true
+        default: ''
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  Safe-Job:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+    # - name: Set env SHA
+    #     run: |
+    #       if [[ -z ${{ github.event.pull_request.head.sha }} ]]; then
+    #           echo "SHA=github.event.pull_request.head.sha" >> "$GITHUB_ENV"
+    #       else
+    #           echo "SHA=$GITHUB_SHA" >> "$GITHUB_ENV"
+    #       fi
+    # - name: Checkout
+    #   if: ${{ github.event.pull_request.head.sha }}
+    #   uses: actions/checkout@v2
+    #   with:
+    #     ref: ${{ github.event.pull_request.head.sha }}
+    # - name: Checkout from SHA
+    #   if: $GITHUB_SHA
+    - run: echo 'Hello from test-action folder' $GITHUB_SHA ${{ inputs.SHA }} ${{ github.event.inputs.SHA }}
+    - name: Run scripts from code
+      run: chmod +x ./scripts/index.sh && ./scripts/index.sh
